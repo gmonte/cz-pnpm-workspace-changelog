@@ -2,7 +2,7 @@
   "name": "cz-pnpm-workspace-changelog",
   "description": "Commitizen adapter following the conventional-changelog format for pnpm workspaces. It's a fork from https://github.com/atlassian/cz-lerna-changelog",
   "main": "lib/index.js",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "scripts": {
     "build": "babel src -d lib",
     "commit": "git-cz",
