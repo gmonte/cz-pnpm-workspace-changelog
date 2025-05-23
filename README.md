@@ -54,7 +54,7 @@ This will use the predefined rules that include:
 - refactor
 - test
 - revert
-- WIP
+- wip
 
 ## Usage
 
