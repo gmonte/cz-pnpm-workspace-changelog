@@ -1,10 +1,8 @@
 import assert from 'assert';
 import shell from 'shelljs';
-const Project = require("@lerna/project");
 
 import stub from './_stub';
 import { prompter, makePrompter } from '../src/index';
-
 
 const createMockCommitizenCli = (answers) => ({
   prompt(questions) {
@@ -25,15 +23,20 @@ const createMockCommitizenCli = (answers) => ({
   registerPrompt: () => {},
 });
 
+describe('cz-pnpm-workspace-changelog', () => {
+  stub(shell, 'exec', (command) => {
+    if (command === 'pnpm list --recursive --depth -1 --json') {
+      return {
+        stdout: JSON.stringify([
+          { name: 'root', path: '.' },  // Root package
+          { name: 'test-package', path: 'packages/test-package' }  // Test package
+        ])
+      };
+    }
+    return { stdout: '' };
+  });
 
-describe('cz-lerna-changelog', () => {
-  stub(shell, 'exec', () => ({ stdout: '' }));
-  stub(Project, 'getPackages', () => ([{
-    name: 'test-package',
-    location: 'packages/test-package'
-  }]));
   it('should generate correct commit message from prompt answers', (done) => {
-
     const answers = {
       'Select the type of change that you\'re committing:':                         'feat',
       'Denote the scope of this change:':                                           'Fake scope',
@@ -56,6 +59,7 @@ describe('cz-lerna-changelog', () => {
       }
     })
   });
+
   it('allows questions to be overriden', (done) => {
     const answers = {
       'Select the type of change that you\'re committing:':                         'feat',

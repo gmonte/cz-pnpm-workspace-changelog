@@ -1,8 +1,8 @@
 {
-  "name": "cz-lerna-changelog",
-  "description": "Commitizen adapter following the conventional-changelog format.",
+  "name": "cz-pnpm-workspace-changelog",
+  "description": "Commitizen adapter following the conventional-changelog format for pnpm workspaces. It's a fork from https://github.com/atlassian/cz-lerna-changelog",
   "main": "lib/index.js",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "scripts": {
     "build": "babel src -d lib",
     "commit": "git-cz",
@@ -16,9 +16,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/atlassian/cz-lerna-changelog.git"
+    "url": "https://github.com/gmonte/cz-pnpm-workspace-changelog.git"
   },
-  "author": "Joshua Nelson <jonelson@atlassian.com>, Joscha Feth <jfeth@atlassian.com>",
+  "author": "Joshua Nelson <jonelson@atlassian.com>, Joscha Feth <jfeth@atlassian.com>, Guilherme Monte <monte.gui@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@semantic-release/commit-analyzer": "^6.1.0",
@@ -28,9 +28,6 @@
     "promise": "^7.1.1",
     "shelljs": "0.7.0"
   },
-  "peerDependencies": {
-    "lerna": "^3.0.0"
-  },
   "devDependencies": {
     "babel-cli": "6.8.0",
     "babel-preset-es2015": "6.6.0",
@@ -38,7 +35,6 @@
     "commitizen": "^2.9.5",
     "cz-conventional-changelog": "^1.2.0",
     "inquirer": "^3.0.4",
-    "lerna": "^3.4.0",
     "mocha": "^3.2.0",
     "semantic-release": "^4.3.5"
   },
@@ -49,5 +45,6 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  }
+  },
+  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }
