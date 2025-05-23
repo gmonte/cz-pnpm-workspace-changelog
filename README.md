@@ -1,25 +1,67 @@
-# cz-lerna-changelog
+# cz-pnpm-workspace-changelog
 
-## 2.0.0
+A fork of [cz-lerna-changelog](https://github.com/atlassian/cz-lerna-changelog) adapted for pnpm workspaces.
 
-Version 2.0.0 is compatible with lerna version 3 only, if you need support for lerna 2 (more specifically, lerna 2.0.0.beta.31).
+## About
 
-Please note that this repository is not actively maintained as it's not actively used here. We are more than happy to accept PRs however. 😀
+This package is part of the [commitizen](https://github.com/commitizen/cz-cli) family. It prompts for [conventional changelog](https://github.com/stevemao/conventional-changelog-angular/blob/master/index.js) standard in a [pnpm workspace](https://pnpm.io/workspaces) environment.
 
+## Installation
 
-# Releasing
+```bash
+# Install commitizen and this package
+npm install --save-dev commitizen cz-pnpm-workspace-changelog @commitlint/cli
+```
 
-* `master` branch tracks the 2.0.0 version
-* `1.x` branch tracks 1.0.0 version
+## Configuration
 
-Status:
-[![npm version](https://img.shields.io/npm/v/cz-lerna-changelog.svg?style=flat-square)](https://www.npmjs.org/package/cz-lerna-changelog)
-[![npm downloads](https://img.shields.io/npm/dm/cz-lerna-changelog.svg?style=flat-square)](http://npm-stat.com/charts.html?package=cz-lerna-changelog&from=2015-08-01)
-[![Build Status](https://img.shields.io/travis/atlassian/cz-lerna-changelog.svg?style=flat-square)](https://travis-ci.org/atlassian/cz-lerna-changelog)
+### Commitizen Configuration
 
-Part of the [commitizen](https://github.com/commitizen/cz-cli) family. Prompts for [conventional changelog](https://github.com/stevemao/conventional-changelog-angular/blob/master/index.js) standard in a [lerna](https://lernajs.io/) environment.
+Add this to your package.json:
 
+```json
+{
+  "config": {
+    "commitizen": {
+      "path": "cz-pnpm-workspace-changelog"
+    }
+  }
+}
+```
 
-Example view (with a few components):
+### Commitlint Configuration
+
+Create a `commitlint.config.js` in your project root:
+
+```js
+module.exports = {
+  extends: ['cz-pnpm-workspace-changelog']
+};
+```
+
+This will use the predefined rules that include:
+- feat
+- fix
+- docs
+- style
+- refactor
+- test
+- revert
+- WIP
+
+## Usage
+
+When you commit with commitizen, you'll be prompted to fill out any required commit fields at commit time. The package will automatically detect which packages in your pnpm workspace have been affected by your changes.
+
+Example view:
 
 ![example view](https://www.evernote.com/l/AAVyZb3cVbpP0oFqYnkpGMAFIbBW3JRGOEUB/image.png)
+
+## Status
+
+[![npm version](https://img.shields.io/npm/v/cz-pnpm-workspace-changelog.svg?style=flat-square)](https://www.npmjs.org/package/cz-pnpm-workspace-changelog)
+[![npm downloads](https://img.shields.io/npm/dm/cz-pnpm-workspace-changelog.svg?style=flat-square)](http://npm-stat.com/charts.html?package=cz-pnpm-workspace-changelog)
+
+## License
+
+MIT
