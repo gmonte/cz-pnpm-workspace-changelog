@@ -13,7 +13,7 @@
   "files": [
     "lib",
     "src",
-    "commitlint.config.js"
+    "commitlint"
   ],
   "repository": {
     "type": "git",

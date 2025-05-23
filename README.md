@@ -29,13 +29,20 @@ Add this to your package.json:
 }
 ```
 
+or create a .czrc file at root:
+```json
+{
+  "path": "cz-pnpm-workspace-changelog"
+}
+```
+
 ### Commitlint Configuration
 
 Create a `commitlint.config.js` in your project root:
 
 ```js
 module.exports = {
-  extends: ['cz-pnpm-workspace-changelog']
+  extends: ['./node_modules/cz-pnpm-workspace-changelog/commitlint']
 };
 ```
 
