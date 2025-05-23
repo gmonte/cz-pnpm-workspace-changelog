@@ -12,6 +12,7 @@ module.exports = (allPackages, changedPackages) => ([
       {value: 'fix',      name: 'fix:      🐛  A bug fix'},
       {value: 'perf',     name: 'perf:     🚀  A code change that improves performance'},
       {value: 'refactor', name: 'refactor: 🔨  A code change that neither fixes a bug nor adds a feature'}, 
+      {value: 'release',  name: 'release:  🎉  Only version bump'}, 
       {value: 'revert',   name: 'revert:   🔙  Revert to a commit'},
       {value: 'style',    name: 'style:    🎨  Changes that do not affect the meaning of the code'},
       {value: 'test',     name: 'test:     🧪  Adding missing tests'},
